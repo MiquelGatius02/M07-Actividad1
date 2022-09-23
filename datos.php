@@ -4,15 +4,13 @@ $nombre = $_GET['nombre'];
 $descripcion = $_GET['descripcion'];
 $cantidad = $_GET['cantidad'];
 $precio = $_GET['precio'];
+
 $servidor = "localhost";
 $usuario = "root";
 $password = "usbw";
 $bd = "actividad1";
 
 $con = mysqli_connect($servidor,$usuario,$password,$bd);
-?>
-
-<?php
 
 if(!$con){
     die("No se ha podido realizar la conexión_" . mysqli_connect_error());
