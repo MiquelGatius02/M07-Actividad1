@@ -33,7 +33,20 @@
             <td scope="col" class="table-dark">descripcion</td>
             <td scope="col" class="table-dark">cantidad</td>
             <td scope="col" class="table-dark">precio</td>
+            <form action="filtrar.php" method="get">
+                    <div class="input-group mb-2">
+                        <select name="select" default ="Nombre">
+                            <option value="value1" selected>Nombre</option>
+                            <option value="value2">Descripción</option>
+                            <option value="value3">Cantidad</option>
+                            <option value="value4">Precio</option>
+                        </select>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Filtro</span>
+                        <input type="text" class="form-control" name="filtro" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </form>
 
+            </tr>
             <?php
             $servidor = "localhost";
             $usuario = "root";

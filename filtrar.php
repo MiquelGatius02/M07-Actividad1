@@ -27,19 +27,30 @@
         </div>
     </nav>
     <div class="container bg-white">
-        <table class="table table table-striped">
+        <table class="table table table-striped ">
             <tr>
                 <td scope="col" class="table-dark">id</td>
                 <td scope="col" class="table-dark">nombre</td>
                 <td scope="col" class="table-dark">descripcion</td>
                 <td scope="col" class="table-dark">cantidad</td>
                 <td scope="col" class="table-dark">precio</td>
-                <div class="mb-3">
-                <label class="form-label">Filtrar</label>
-                <input type="text" class="form-control" name="filtro">
-            </div>
+                <form action="" method="get">
+                    <div class="input-group mb-2">
+                        <select name="select" default="Nombre">
+                            <option value="Nombre" selected>Nombre</option>
+                            <option value="Descripción">Descripción</option>
+                            <option value="Cantidad">Cantidad</option>
+                            <option value="Precio">Precio</option>
+                        </select>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Filtro</span>
+                        <input type="text" class="form-control" name="filtro" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </form>
+
             </tr>
             <?php
+            $valor = $_GET["select"];
+            $filtro = $_GET["filtro"];
             $servidor = "localhost";
             $usuario = "root";
             $password = "";
@@ -50,24 +61,27 @@
             if (!$con) {
                 die("No se ha podido realizar la conexión_" . mysqli_connect_error());
             } else {
-
                 mysqli_set_charset($con, "utf8");
-                $sql2 = "SELECT * FROM `productos`";
+
+                echo $valor;
+                
+                /* $sql2 = "SELECT * FROM `productos`"; */
+
+                $sql2 = "SELECT * FROM `productos` WHERE $valor LIKE `$filtro%`";
                 $consulta = mysqli_query($con, $sql2);
 
                 while ($fila = $consulta->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $fila["Id"] . "</td>";
-                    /*                     if(str_contains($fila["Nombre"],$filtro)){
-                        echo "Ganamos"; */
-                    echo "<td>" . $fila["Nombre"] . "</td>";
-                    echo "<td>" . $fila["Descripción"] . "</td>";
-                    echo "<td>" . $fila["Cantidad"] . "</td>";
-                    echo "<td>" . $fila["Precio"] . "</td>";
-                    echo "</tr>";
+                    if (str_starts_with($fila["Nombre"], $filtro)) {
+                        echo "<td>" . $fila["Id"] . "</td>";
+                        echo "<td>" . $fila["Nombre"] . "</td>";
+                        echo "<td>" . $fila["Descripción"] . "</td>";
+                        echo "<td>" . $fila["Cantidad"] . "</td>";
+                        echo "<td>" . $fila["Precio"] . "</td>";
+                        echo "</tr>";
+                    }
                 }
             }
-
             ?>
         </table>
     </div>
