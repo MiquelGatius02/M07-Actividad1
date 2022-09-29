@@ -15,13 +15,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="formulario.html">Registro <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="formulario.html">Registro</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="lista.php">Lista</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="filtrar.php">Filtro</a>
+                    <a class="nav-link" href="filtrar.php">Filtro <span class="sr-only">(actual) </span></a>
                 </li>
             </ul>
         </div>
@@ -49,7 +49,7 @@
 
             </tr>
             <?php
-            $valor = $_GET["select"];
+            $valor  = $_GET["select"];
             $filtro = $_GET["filtro"];
             $servidor = "localhost";
             $usuario = "root";
@@ -62,17 +62,17 @@
                 die("No se ha podido realizar la conexión_" . mysqli_connect_error());
             } else {
                 mysqli_set_charset($con, "utf8");
-
                 echo $valor;
-                
-                /* $sql2 = "SELECT * FROM `productos`"; */
-
-                $sql2 = "SELECT * FROM `productos` WHERE $valor LIKE `$filtro%`";
+                echo  $filtro;
+                $sql2 = "SELECT * FROM `productos` WHERE $valor LIKE '$filtro%' ";
+                echo $valor;
+                echo  $filtro;
                 $consulta = mysqli_query($con, $sql2);
-
+                echo $valor;
+                echo  $filtro;
                 while ($fila = $consulta->fetch_assoc()) {
                     echo "<tr>";
-                    if (str_starts_with($fila["Nombre"], $filtro)) {
+                    if (str_starts_with($fila[$valor], $filtro)) {
                         echo "<td>" . $fila["Id"] . "</td>";
                         echo "<td>" . $fila["Nombre"] . "</td>";
                         echo "<td>" . $fila["Descripción"] . "</td>";

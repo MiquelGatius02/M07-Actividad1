@@ -15,13 +15,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="formulario.html">Registro <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="formulario.html">Registro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="lista.php">Lista</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="filtrar.php">Filtro</a>
+                    <a class="nav-link" href="lista.php">Lista <span class="sr-only">(actual)</span></a>
                 </li>
             </ul>
         </div>
@@ -34,17 +31,17 @@
             <td scope="col" class="table-dark">cantidad</td>
             <td scope="col" class="table-dark">precio</td>
             <form action="filtrar.php" method="get">
-                    <div class="input-group mb-2">
-                        <select name="select" default ="Nombre">
-                            <option value="value1" selected>Nombre</option>
-                            <option value="value2">Descripción</option>
-                            <option value="value3">Cantidad</option>
-                            <option value="value4">Precio</option>
-                        </select>
-                        <span class="input-group-text" id="inputGroup-sizing-default">Filtro</span>
-                        <input type="text" class="form-control" name="filtro" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                </form>
+                <div class="input-group mb-2">
+                    <select name="select" default="Nombre">
+                        <option value="Nombre" selected>Nombre</option>
+                        <option value="Descripción">Descripción</option>
+                        <option value="Cantidad">Cantidad</option>
+                        <option value="Precio">Precio</option>
+                    </select>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Filtro</span>
+                    <input type="text" class="form-control" name="filtro" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </form>
 
             </tr>
             <?php
