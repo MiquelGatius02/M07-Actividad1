@@ -15,10 +15,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="formulario.html">Registro</a>
+                    <a class="nav-link" href="index.html">Registro</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="lista.php">Lista <span class="sr-only">(actual)</span></a>
+                </li>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="login.html">Login <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Register</a>
                 </li>
             </ul>
         </div>

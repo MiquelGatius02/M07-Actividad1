@@ -15,13 +15,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="formulario.html">Registro</a>
+                    <a class="nav-link" href="index.html">Registro</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="lista.php">Lista</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="filtrar.php">Filtro <span class="sr-only">(actual) </span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Register</a>
                 </li>
             </ul>
         </div>
@@ -75,7 +81,7 @@
                         echo "<td>" . $fila["Descripción"] . "</td>";
                         echo "<td>" . $fila["Cantidad"] . "</td>";
                         echo "<td>" . $fila["Precio"] . "</td>";
-                        echo "<td>  <form action='borrar.php?id=". $fila["Id"]."'method='post'>
+                        echo "<td>  <form action='borrar.php?id=" . $fila["Id"] . "'method='post'>
                         <input type='submmit' class='btn btn-danger' name = 'borrar' value = 'Borrar'>
                         </form></td>";
                         echo "</tr>";
